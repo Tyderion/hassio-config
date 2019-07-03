@@ -1,0 +1,1 @@
+wake_pc: 'ssh -i /ssl/id_rsa -o StrictHostKeyChecking=no root@router.local -t "ether-wake 04:92:26:BD:66:A0"'

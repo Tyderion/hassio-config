@@ -1,0 +1,15 @@
+- id: roomba_clean
+  alias: Roomba clean if empty house
+  trigger:
+  - at: '11:00'
+    platform: time
+  condition:
+  - condition: template
+    value_template: '{%if is_state_attr(''vacuum.roomba'', ''bin_full'', false) %}true{%endif%}'
+  - condition: state
+    entity_id: person.gabriel
+    state: not_home
+  action:
+  - service: vacuum.turn_on
+    data:
+      entity_id: all

@@ -1,0 +1,11 @@
+- id: wohnzimmer_tap_on
+  alias: Wohnzimmer Lights On
+  trigger:
+  - event_data:
+      event: 18
+      id: tap
+    event_type: deconz_event
+    platform: event
+  condition: []
+  action:
+  - service: script.wohnzimmer_toggle

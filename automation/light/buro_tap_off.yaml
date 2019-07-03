@@ -1,0 +1,14 @@
+- id: buro_tap_off
+  alias: Büro Tap Off
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: tap
+      event: 34
+  condition:
+  - condition: state
+    entity_id: group.buro
+    state: 'on'
+  action:
+  - service: script.buro_off

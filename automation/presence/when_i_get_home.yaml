@@ -1,0 +1,29 @@
+- id: get_home_roomba_stuck
+  alias: 'Home: Handle Stuck Roomba'
+  trigger: 
+  - !include /config/trigger/home.yaml
+  condition: 
+  - !include /config/condition/roomba/stuck.yaml
+  action:
+  - service: script.roomba_stuck_notification
+- id: get_home_stop_roomba
+  alias: 'Home: Stop Running Romba'
+  trigger:
+  - !include /config/trigger/home.yaml
+  condition: 
+  - !include /config/condition/roomba/not_stuck.yaml
+  - !include /config/condition/roomba/not_charging.yaml
+  action:
+  - service: vacuum.return_to_base
+    data:
+      entity_id: all
+- id: get_home_roomba_full
+  alias: 'Home: Handle Full Roomba'
+  trigger:
+  - !include /config/trigger/roomba_full.yaml
+  - !include /config/trigger/home.yaml
+  condition:
+  - !include /config/condition/home.yaml
+  - !include /config/condition/roomba/full.yaml
+  action:
+  - service: script.roomba_full_notification

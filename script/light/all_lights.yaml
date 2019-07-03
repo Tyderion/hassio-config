@@ -1,0 +1,17 @@
+turn_lights_on:
+  alias: Turn Lights On
+  sequence:
+  - data_template:
+      brightness: "{{ states('input_number.flux_brightness') | int }}"
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"
+      entity_id:
+      - group.wohnzimmer
+      - group.buro
+    service: light.turn_on
+turn_lights_off:
+  alias: Turn lights off
+  sequence:
+  - data:
+      entity_id:
+      - group.every_light
+    service: light.turn_off

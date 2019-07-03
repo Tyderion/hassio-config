@@ -1,0 +1,19 @@
+*.log
+*.db
+*.key
+*.pub
+.spotify-token-cache
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+custom_components
+tts
+
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+

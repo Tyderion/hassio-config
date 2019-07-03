@@ -1,0 +1,3 @@
+condition: state
+entity_id: person.gabriel
+state: home

@@ -1,0 +1,6 @@
+evening_lights:
+  name: Check if Evening lights task has run
+test_trigger:
+  name: Turn on to trigger task
+test_trigger2:
+  name: Turn on to trigger task 2

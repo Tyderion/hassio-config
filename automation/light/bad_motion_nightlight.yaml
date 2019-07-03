@@ -1,0 +1,11 @@
+- id: bad_motion_nightlight
+  alias: Bad Lights Night
+  trigger:
+  - entity_id: binary_sensor.motion_bad
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - !include /config/condition/night.yaml
+  action:
+    service: script.bad_nightlight

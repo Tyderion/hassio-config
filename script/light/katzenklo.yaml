@@ -1,0 +1,16 @@
+katzenklo_default:
+  alias: Katzenklo Dim
+  sequence:
+  - data:
+      brightness: 8
+      color_temp: 500
+      entity_id: light.katzenklo_3
+    service: light.turn_on
+katzenklo_bright:
+  alias: Katzenklo Bright
+  sequence:
+  - data:
+      brightness: 255
+      color_temp: 300
+      entity_id: light.katzenklo_3
+    service: light.turn_on

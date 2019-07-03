@@ -1,0 +1,23 @@
+bad_on_day:
+  alias: Bad On Day
+  sequence:
+  - data_template:
+      brightness: 255
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"
+      entity_id: group.bad
+    service: light.turn_on
+bad_nightlight:
+  alias: Bad Nightlight
+  sequence:
+  - data_template:
+      brightness: 8
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"
+      entity_id: group.bad
+    service: light.turn_on
+bad_no_brightness_change:
+  alias: Bad No Brightness Change
+  sequence:
+  - data_template:
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"
+      entity_id: group.bad
+    service: light.turn_on

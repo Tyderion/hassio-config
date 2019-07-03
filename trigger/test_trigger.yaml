@@ -1,0 +1,4 @@
+platform: state
+entity_id: input_boolean.test_trigger
+from: 'off'
+to: 'on'

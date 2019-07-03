@@ -1,0 +1,4 @@
+entity_id: person.gabriel
+from: not_home
+platform: state
+to: home

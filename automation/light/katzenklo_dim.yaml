@@ -1,0 +1,11 @@
+- id: katzenklo_dim
+  alias: Katzenklo Lights Dim
+  trigger:
+  - entity_id: binary_sensor.motion_katzenklo
+    for: '5'
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - service: script.katzenklo_default

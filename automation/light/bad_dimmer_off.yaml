@@ -1,0 +1,12 @@
+- id: bad_dimmer_off
+  alias: Bad Dimmer off
+  trigger:
+  - event_data:
+      event: 4000
+      id: dimmer_bad
+    event_type: deconz_event
+    platform: event
+  action:
+  - data:
+      entity_id: group.bad
+    service: light.turn_off

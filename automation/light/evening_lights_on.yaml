@@ -1,0 +1,22 @@
+- id: evening_lights_on
+  alias: Evening Lights
+  trigger:
+  - below: '50'
+    entity_id: sensor.light_level_bad
+    platform: numeric_state
+  - entity_id: person.gabriel
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - !include /config/condition/home.yaml
+  - !include /config/condition/dark.yaml
+  - !include /config/condition/evening.yaml
+  - condition: state
+    entity_id: input_boolean.evening_lights
+    state: 'off'
+  action:
+  - service: script.turn_lights_on
+  - service: input_boolean.turn_on
+    data: 
+      entity_id: input_boolean.evening_lights

@@ -1,0 +1,16 @@
+ide:
+  title: IDE
+  icon: mdi:code-braces
+  url: https://ide.hassio.local
+router:
+  title: Router
+  icon: mdi:router-wireless-settings
+  url: https://router.local
+nas:
+  title: Nas
+  icon: mdi:nas
+  url: https://admin.nas.local
+pihole:
+  title: PiHole
+  icon: mdi:pi-hole
+  url: https://pihole.hassio.local

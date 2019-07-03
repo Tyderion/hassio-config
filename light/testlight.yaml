@@ -1,0 +1,90 @@
+#platform: mqtt
+#name: "Test MQTT Light"
+# state_topic: "light/test/state"
+# command_topic: "light/test"
+# availability_topic: "light/test/availability"
+# rgb_state_topic: "light/test/rgb/state"
+# rgb_command_topic: "light/test/rgb"
+# qos: 0
+# payload_available: "1"
+# payload_not_available: "0"
+# payload_on: "1"
+# payload_off: "0"
+# optimistic: false
+# retain: true
+# brightness: true
+# rgb: true
+# schema: json
+
+- platform: mqtt
+  schema: json
+  name: 'LED Lights'
+  state_topic: 'light/testlight'
+  command_topic: 'light/testlight/set'
+  availability_topic: 'light/testlight/LWT'
+  payload_available: 'Online'
+  payload_not_available: 'Offline'
+  effect: true
+  effect_list:
+    - static
+    - blink
+    - breath
+    - color wipe
+    - color wipe inverted
+    - color wipe reverse
+    - color wipe reverse inverted
+    - color wipe random
+    - random color
+    - single dynamic
+    - multi dynamic
+    - rainbow
+    - rainbow cycle
+    - scan
+    - dual scan
+    - fade
+    - theater chase
+    - theater chase rainbow
+    - running lights
+    - twinkle
+    - twinkle random
+    - twinkle fade
+    - twinkle fade random
+    - sparkle
+    - flash sparkle
+    - hyper sparkle
+    - strobe
+    - strobe rainbow
+    - multi strobe
+    - blink rainbow
+    - chase white
+    - chase color
+    - chase random
+    - chase rainbow
+    - chase flash
+    - chase random
+    - chase rainbow white
+    - chase blackout
+    - chase blackout rainbow
+    - color sweep random
+    - running color
+    - running red blue
+    - running random
+    - larson scanner
+    - comet
+    - fireworks
+    - fireworks random
+    - merry christmas
+    - fire flicker
+    - fire flicker soft
+    - fire flicker intense
+    - circus combustus
+    - halloween
+    - bicolor chase
+    - tricolor chase
+    - icu
+  brightness: true
+  rgb: true
+  color_temp: true
+  optimistic: false
+  qos: 0
+  retain: true

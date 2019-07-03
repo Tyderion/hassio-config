@@ -1,0 +1,10 @@
+- id: bad_motion_day
+  alias: Bad Lights Day
+  trigger:
+  - entity_id: binary_sensor.motion_bad
+    platform: state
+  condition:
+  - !include /config/condition/dark.yaml
+  - !include /config/condition/day.yaml
+  action:
+  - service: script.bad_on_day

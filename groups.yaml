@@ -1,0 +1,26 @@
+buro: 
+  entities: 
+    - light.buro_decki
+    - light.gaming
+bad: 
+  entities:
+    - light.bad_3
+gaming: 
+  entities:
+    - light.gaming
+wohnzimmer:
+  entities:
+    - light.sofa_strip
+katzenklo:
+  entities:
+    - light.katzenklo
+every_light: 
+  entities: 
+    - light.bad_3
+    - light.sofa_strip
+    - light.buro_decki
+    - light.gaming
+    
+fake:
+  entities:
+    - light.fakelight

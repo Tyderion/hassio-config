@@ -1,0 +1,11 @@
+- id: frontend_theme
+  alias: Set Theme
+  trigger:
+  - event_data: {}
+    event_type: 'homeassistant_start'
+    platform: event
+  condition: []
+  action:
+  - data:
+      name: material_dark_red
+    service: frontend.set_theme

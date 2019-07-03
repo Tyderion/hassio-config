@@ -1,0 +1,27 @@
+buro_on:
+  alias: Turn Büro On
+  sequence:
+  - data_template:
+      brightness: "{{ states('input_number.flux_brightness') | int }}"
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"
+      entity_id: group.buro
+    service: light.turn_on
+buro_off:
+  alias: Turn Büro Off
+  sequence:
+  - data:
+      entity_id: group.buro
+    service: light.turn_off
+gaming_mode:
+  alias: Gaming Mode
+  sequence:
+  - service: script.buro_off
+  - service: script.gaming_on
+gaming_on:
+  alias: Gaming Light
+  sequence:
+  - service: light.turn_on
+    data_template:
+      brightness: 125
+      entity_id: group.gaming
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"

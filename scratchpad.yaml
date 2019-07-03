@@ -1,0 +1,11 @@
+- platform: mqtt
+  name: "Test MQTT Light"
+  state_topic: "light/test/state"
+  command_topic: "light/test"
+  availability_topic: "light/test/availability"
+  rgb_state_topic: "light/test/rgb/state"
+  rgb_command_topic: "light/test/rgb"
+  payload_available: "1"
+  payload_not_available: "0"
+  payload_on: "1"
+  payload_off: "0"

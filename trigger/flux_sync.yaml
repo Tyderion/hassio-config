@@ -1,0 +1,2 @@
+platform: state
+entity_id: input_number.flux_color_temp

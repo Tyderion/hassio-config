@@ -1,0 +1,17 @@
+- id: sync_flux_values
+  alias: Sync Flux Values
+  trigger:  
+    platform: time_pattern
+    # You can also match on interval. This will match every 1 minutes
+    #minutes: '/1'
+    minutes: '/1'
+  condition: []
+  action:
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.flux_color_temp
+      value: "{{ states.light.fakelight.attributes.color_temp | int }}"
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.flux_brightness
+      value: "{{ states.light.fakelight.attributes.brightness | int }}"

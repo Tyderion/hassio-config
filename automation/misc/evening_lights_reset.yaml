@@ -1,0 +1,10 @@
+- id: evening_lights_on
+  alias: Evening Lights
+  trigger:
+  - platform: time
+    at: '16:45'
+  condition: []
+  action:
+  - data: 
+      entity_id: input_boolean.evening_lights
+    service: input_boolean.turn_off

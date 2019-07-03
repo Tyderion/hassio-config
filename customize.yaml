@@ -1,0 +1,22 @@
+device_tracker.huawei_p10_70a89f0a5104d3:
+  friendly_name: HUAWEI P10
+device_tracker.00_bb_3a_92_77_80:
+  friendly_name: Router
+device_tracker.ec_c4_0d_35_b5_25:
+  friendly_name: Unknown
+device_tracker.roomba_30f8891c70236860:
+  friendly_name: Roomba
+device_tracker.am335x_opt:
+  friendly_name: AV Receiver
+media_player.onkyo_tx_nr686_f0c18d:
+  friendly_name: AV Receiver
+device_tracker.esp_146f05:
+  friendly_name: Test Feather
+sensor.yr_symbol:
+  friendly_name: Weather
+person.gabriel: 
+  templates:
+    icon: '{%if is_state(''person.gabriel'', ''home'') %}mdi:account{%else%}mdi:account-clock{%endif%}'
+sensor.motion_bad_2:
+  device_class: illuminance
+  friendly_name: LightLevel Bad

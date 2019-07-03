@@ -1,0 +1,14 @@
+roomba_full_notification:
+  alias: Roomba Full Notification
+  sequence:
+  - data:
+      title: '*[Roomba]*'
+      message: Roomba is full. Please empty tray.
+    service: notify.telegram
+roomba_stuck_notification:
+  alias: Roomba Stuck Notification
+  sequence:
+  - data:
+      title: '*[Roomba]*'
+      message: Roomba is stuck. Please unstuck.
+    service: notify.telegram

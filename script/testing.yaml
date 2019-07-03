@@ -1,0 +1,7 @@
+test_notification:
+  alias: Test Notification
+  sequence:
+  - data:
+      title: '*[Test]*'
+      message: Test notification.
+    service: notify.telegram

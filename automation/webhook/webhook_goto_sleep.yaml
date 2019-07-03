@@ -1,0 +1,8 @@
+- id: webhook_goto_sleep
+  alias: Webhook Goto Sleep
+  trigger:
+  - platform: webhook
+    webhook_id: go_to_sleep
+  condition: []
+  action:
+  - service: script.turn_lights_off

@@ -1,0 +1,10 @@
+- id: buro_dimmer_on
+  alias: Büro Dimmer on
+  trigger:
+  - event_data:
+      event: 1000
+      id: dimmer_buro
+    event_type: deconz_event
+    platform: event
+  action:
+  - service: script.buro_on

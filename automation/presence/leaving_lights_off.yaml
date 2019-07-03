@@ -1,0 +1,10 @@
+- id: leaving_lights_off
+  alias: Lights off when i leave
+  trigger:
+  - entity_id: person.gabriel
+    from: home
+    platform: state
+    to: hot_home
+  condition: []
+  action:
+  - service: script.turn_lights_off

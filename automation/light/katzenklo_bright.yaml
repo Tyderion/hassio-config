@@ -1,0 +1,7 @@
+- id: katzenklo_bright
+  alias: Katzenklo Lights On
+  trigger:
+  - entity_id: binary_sensor.motion_katzenklo
+    platform: state
+  action:
+  - service: script.katzenklo_bright

@@ -1,0 +1,3 @@
+after: '23:00'
+before: '7:00'
+condition: time

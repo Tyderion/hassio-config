@@ -1,0 +1,10 @@
+- id: gaming_mode
+  alias: Gaming Mode
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: dimmer_buro
+      event: 4000
+  action:
+  - service: script.gaming_mode

@@ -1,0 +1,2 @@
+condition: template
+value_template: '{%if is_state_attr(''vacuum.roomba'', ''status'', ''Charging'') %}false{%else%}true{%endif%}'

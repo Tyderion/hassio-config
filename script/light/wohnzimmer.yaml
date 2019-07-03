@@ -1,0 +1,16 @@
+wohnzimmer_on:
+  alias: Turn Wohnzimmer On
+  sequence:
+  - data_template:
+      brightness: "{{ states('input_number.flux_brightness') | int }}"
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"
+      entity_id: light.wohnzimmer
+    service: light.turn_on
+wohnzimmer_toggle:
+  alias: Toggle Wohnzimmer
+  sequence:
+  - data_template:
+      brightness: "{{ states('input_number.flux_brightness') | int }}"
+      color_temp: "{{ states('input_number.flux_color_temp') | int }}"
+      entity_id: group.wohnzimmer
+    service: light.toggle

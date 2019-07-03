@@ -1,0 +1,39 @@
+- id: sync_buro
+  alias: Sync Buro Light
+  trigger: !include /config/trigger/flux_sync.yaml
+  condition: 
+    - condition: state
+      entity_id: light.buro_decki
+      state: 'on'
+  action:
+  - service: script.buro_on
+- id: sync_wohnzimmer
+  alias: Sync Wohnzimmer Light
+  trigger: !include /config/trigger/flux_sync.yaml
+  condition: 
+    - condition: state
+      entity_id: light.wohnzimmer
+      state: 'on'
+  action:
+  - service: script.wohnzimmer_on
+- id: sync_gaming
+  alias: Sync Gaming Light
+  trigger: !include /config/trigger/flux_sync.yaml
+  condition: 
+    - condition: state
+      entity_id: light.gaming
+      state: 'on'
+    - condition: state
+      entity_id: light.buro_decki
+      state: 'off'
+  action:
+    service: script.gaming_on
+- id: sync_bad
+  alias: Sync Bad Light
+  trigger: !include /config/trigger/flux_sync.yaml
+  condition: 
+    - condition: state
+      entity_id: group.bad
+      state: 'on'
+  action:
+  - service: script.bad_no_brightness_change

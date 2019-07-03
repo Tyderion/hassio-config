@@ -1,0 +1,133 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 47.374036
+  longitude: 8.638414
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 400 
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Zurich
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+frontend: 
+  themes: !include_dir_merge_named themes
+  
+circadian_lighting:
+  max_colortemp: 6536
+  min_colortemp: 2000
+  sunset_offset: '2:00'
+  
+
+# Discover some devices automatically
+discovery:
+logger: !include /config/logger.yaml
+    
+weather: 
+  - platform: openweathermap
+    api_key: !secret openweather_apikey
+    mode: freedaily
+  - platform: darksky
+    mode: daily
+    api_key: !secret darksky_apikey
+
+hacs: 
+  token: !secret github_token
+  
+# Sensors
+sensor: !include_dir_merge_list sensor
+
+# Text to speech
+tts:
+  - platform: google_translate
+device_tracker:
+  - platform: tomato
+    host: 192.168.2.1
+    username: !secret tomato_username
+    password: !secret tomato_password 
+    http_id: !secret tomato_httpid
+    ssl: true
+    verify_ssl: false #"/opt/custom-config/router_cert.pem"
+    new_device_defaults:
+      track_new_devices: true
+    #  hide_if_away: false
+  
+wake_on_lan: # 04:92:26:BD:66:A0
+
+cast:
+  media_player:
+    - host: 192.168.1.34
+    - host: 192.168.1.7
+
+vacuum:
+  - platform: roomba
+    host: 192.168.1.41
+    username: !secret roomba_username
+    password: !secret roomba_password
+
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+    
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_apikey
+    allowed_chat_ids:
+      - !secret telegram_my_chatid
+
+notify:
+- name: pushbullet 
+  platform: pushbullet
+  api_key: !secret pushbullet_apikey
+- name: telegram
+  platform: telegram
+  chat_id: !secret telegram_my_chatid
+  
+
+group: !include groups.yaml
+#automation: !include automations.yaml
+automation: !include_dir_merge_list automation
+#script: !include scripts.yaml
+script: !include_dir_merge_named script
+http:
+  # For extra security set this to only accept connections on localhost if NGINX is on the same machine
+  # server_host: 127.0.0.1
+  # Update this line to be your domain
+  #base_url: https://hassio.local
+  base_url: https://hassio-tyd.duckdns.org
+  use_x_forwarded_for: true
+  # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
+  # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
+  trusted_proxies: 127.0.0.1
+
+panel_iframe: !include panel_iframe.yaml
+
+light: !include_dir_merge_list light
+shell_command: !include shell_commands.yaml
+
+history:
+  exclude:
+    domains:
+      - automation
+      - script
+      - all
+      
+input_boolean: !include input_boolean.yaml
+input_number: !include input_number.yaml
+
+switch: !include_dir_merge_list switch
+
+# mqtt:
+#   broker: 192.168.2.37
+#   port: 1883
+#   client_id: home-assistant
+#   keepalive: 60
+#   discovery: true
+#   discovery_prefix: homeassistant

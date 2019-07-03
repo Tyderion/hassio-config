@@ -1,0 +1,12 @@
+- id: bad_dimmer_day
+  alias: Bad Dimmer Day on
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: dimmer_bad
+      event: 1000
+  condition:
+  - !include /config/condition/day.yaml
+  action:
+  - service: script.bad_on_day

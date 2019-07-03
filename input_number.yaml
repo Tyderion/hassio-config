@@ -1,0 +1,10 @@
+flux_color_temp: 
+  name: Flux Color Temp
+  min: 153
+  max: 500
+  step: 1
+flux_brightness: 
+  name: Flux Brightness
+  min: 0
+  max: 255
+  step: 1
