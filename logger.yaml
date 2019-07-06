@@ -1,6 +1,6 @@
 default: warn
-  logs:
-    homeassistant.components.shell_command: warn
-    homeassistant.components.mqtt: warn
-    homeassistant.components.script: warn
-    homeassistant.components.automation: warn
+logs:
+  homeassistant.components.shell_command: warn
+  homeassistant.components.mqtt: warn
+  homeassistant.components.script: warn
+  homeassistant.components.automation: warn
